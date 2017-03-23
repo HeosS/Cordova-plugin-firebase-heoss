@@ -5,13 +5,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/arnesson/cordova-plugin-firebase"
+    "url": "https://github.com/HeosS/Cordova-plugin-firebase-heoss"
   },
-  "name": "cordova-plugin-firebase",
-  "version": "0.1.19",
+  "name": "cordova-plugin-firebase-heoss",
+  "version": "1.0",
   "description": "Cordova plugin for Google Firebase",
   "cordova": {
-    "id": "cordova-plugin-firebase",
+    "id": "cordova-plugin-firebase-heoss",
     "platforms": [
       "android",
       "ios",
