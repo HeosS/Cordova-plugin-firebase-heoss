@@ -9,6 +9,9 @@ buildscript {
 repositories {
     mavenCentral()
 }
+android {
+    buildToolsVersion "21.0.1"
+}
 dependencies {
     compile 'me.leolin:ShortcutBadger:1.1.4@aar'
 }
