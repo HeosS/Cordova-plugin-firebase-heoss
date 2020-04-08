@@ -1,45 +1,29 @@
 buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
+    repositorios {
+        jcenter ()
+        mavenCentral ()
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:+'
-        classpath 'com.google.gms:google-services:4.1.0'
+    dependencias {
+        classpath ' com.android.tools.build:gradle:+ '
+        classpath ' com.google.gms: google-services: 4.1.0 '
     }
 }
-repositories {
-    mavenCentral()
-    maven { url "https://maven.google.com" }
-    maven { url 'https://maven.fabric.io/public' }
-}
-
-dependencies {
-    compile 'me.leolin:ShortcutBadger:1.1.4@aar'
-    compile 'com.google.firebase:firebase-auth:+'
-    compile('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
-       transitive = true
+repositorios {
+    mavenCentral ()
+    maven {
+        url " https://maven.google.com "
     }
 }
 
-cdvPluginPostBuildExtras.add({
-    apply plugin: 'com.google.gms.google-services'
-    apply plugin: 'io.fabric'
+dependencias {
+    compile ' me.leolin: ShortcutBadger: 1.1.4@aar '
+    compile ' com.google.firebase: firebase-auth: + '
+    compilar ( ' com.crashlytics.sdk.android:crashlytics:2.9.1@aar ' ) {
+       transitivo =  verdadero
+    }
+}
+
+cdvPluginPostBuildExtras . añadir({
+    aplique el complemento : ' com.google.gms.google-services '
+    aplicar el complemento : ' io.fabric '
 })
-
-// Fabric Cordova Plugin - Start Fabric Build Tools 
-buildscript {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-        maven { url 'https://maven.google.com' }
-    }
-    dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
-        //classpath 'io.fabric.tools:gradle:1.25.4'
-        classpath 'com.google.gms:google-services:+'
-    }
-}
-
-apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
-apply plugin: 'com.google.gms.google-services'
