@@ -2,15 +2,10 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
-        maven { url 'https://maven.fabric.io/public' }
-        maven { url 'https://maven.google.com' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:+'
         classpath 'com.google.gms:google-services:4.1.0'
-        classpath 'io.fabric.tools:gradle:1.+'
-        //classpath 'io.fabric.tools:gradle:1.25.4'
-        classpath 'com.google.gms:google-services:+'
     }
 }
 repositories {
@@ -33,7 +28,7 @@ cdvPluginPostBuildExtras.add({
 })
 
 // Fabric Cordova Plugin - Start Fabric Build Tools 
-/*buildscript {
+buildscript {
     repositories {
         maven { url 'https://maven.fabric.io/public' }
         maven { url 'https://maven.google.com' }
@@ -43,7 +38,7 @@ cdvPluginPostBuildExtras.add({
         //classpath 'io.fabric.tools:gradle:1.25.4'
         classpath 'com.google.gms:google-services:+'
     }
-}*/
+}
 
 apply plugin: 'com.android.application'
 //apply plugin: 'io.fabric'
