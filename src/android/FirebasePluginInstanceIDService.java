@@ -1,26 +1,25 @@
-package org.apache.cordova.firebase;
+paquete  org.apache.cordova.firebase ;
 
-import android.util.Log;
+importar  android.util.Log ;
 
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.FirebaseInstanceIdService;
+import  com.google.firebase.iid.FirebaseInstanceId ;
+importar  com.google.firebase.iid.FirebaseInstanceIdService ;
 
+ clase  pública FirebasePluginInstanceIDService  extiende  FirebaseInstanceIdService {
 
-public class FirebasePluginInstanceIDService extends FirebaseInstanceIdService {
+    Private  static  final  String  TAG  =  " FirebasePlugin " ;
 
-    private static final String TAG = "FirebasePlugin";
+    / **
+     * Se llama si se actualiza el token InstanceID. Esto puede ocurrir si la seguridad de
+     * la ficha anterior había sido comprometida. Tenga en cuenta que esto se llama cuando el token InstanceID
+     * se genera inicialmente, así que aquí es donde recuperarías el token.
+     * /
+    @Anular
+    public  void  onTokenRefresh () {
+        // Obtenga el token InstanceID actualizado.
+        Cadena refreshedToken =  FirebaseInstanceId . getInstance () . getToken ();
+        Registro . d ( TAG , " Token actualizado: "  + token actualizado);
 
-    /**
-     * Called if InstanceID token is updated. This may occur if the security of
-     * the previous token had been compromised. Note that this is called when the InstanceID token
-     * is initially generated so this is where you would retrieve the token.
-     */
-    @Override
-    public void onTokenRefresh() {
-        // Get updated InstanceID token.
-        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-        Log.d(TAG, "Refreshed token: " + refreshedToken);
-
-        FirebasePlugin.sendToken(refreshedToken);
+        FirebasePlugin . sendToken (refreshedToken);
     }
 }
