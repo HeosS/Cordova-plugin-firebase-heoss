@@ -1,29 +1,29 @@
 buildscript {
-    repositorios {
-        jcenter ()
-        mavenCentral ()
+    repositories {
+        jcenter()
+        mavenCentral()
     }
-    dependencias {
-        classpath ' com.android.tools.build:gradle:+ '
-        classpath ' com.google.gms: google-services: 4.1.0 '
+    dependencies {
+        classpath 'com.android.tools.build:gradle:+'
+        classpath 'com.google.gms:google-services:4.1.0'
     }
 }
-repositorios {
-    mavenCentral ()
+repositories {
+    mavenCentral()
     maven {
-        url " https://maven.google.com "
+        url "https://maven.google.com"
     }
 }
 
-dependencias {
-    compile ' me.leolin: ShortcutBadger: 1.1.4@aar '
-    compile ' com.google.firebase: firebase-auth: + '
-    compilar ( ' com.crashlytics.sdk.android:crashlytics:2.9.1@aar ' ) {
-       transitivo =  verdadero
+dependencies {
+    compile 'me.leolin:ShortcutBadger:1.1.4@aar'
+    compile 'com.google.firebase:firebase-auth:+'
+    compile('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
+       transitive = true
     }
 }
 
-cdvPluginPostBuildExtras . añadir({
-    aplique el complemento : ' com.google.gms.google-services '
-    aplicar el complemento : ' io.fabric '
+cdvPluginPostBuildExtras.add({
+    apply plugin: 'com.google.gms.google-services'
+    apply plugin: 'io.fabric'
 })
