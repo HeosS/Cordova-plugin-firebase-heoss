@@ -10,7 +10,7 @@
   <dependency id="cordova-plugin-androidx-adapter" version="^1.1.0" />
 
   <engines>
-    <engine name="cordova" version=">=7" />
+    <engine name="cordova" version=">=8" />
     <engine name="cordova-android" version=">=8" />
     <engine name="cordova-ios" version=">=5" />
   </engines>
