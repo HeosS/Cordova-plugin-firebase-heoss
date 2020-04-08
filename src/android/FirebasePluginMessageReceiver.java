@@ -1,18 +1,28 @@
-paquete  org.apache.cordova.firebase ;
+package org.apache.cordova.firebase;
 
-importar  com.google.firebase.messaging.RemoteMessage ;
+import android.os.Bundle;
 
- clase abstracta  pública FirebasePluginMessageReceiver { 
+import com.google.firebase.messaging.RemoteMessage;
 
-    public  FirebasePluginMessageReceiver () {
-        FirebasePluginMessageReceiverManager . registrarse ( esto );
+public abstract class FirebasePluginMessageReceiver {
+
+    public FirebasePluginMessageReceiver() {
+        FirebasePluginMessageReceiverManager.register(this);
     }
 
-    / **
-     * Las subclases concretas deberían anular esto y devolver verdadero si manejan el mensaje recibido.
-     * *
+    /**
+     * Concrete subclasses should override this and return true if they handle the received message.
+     *
      * @param remoteMessage
-     * @return true si el mensaje recibido fue manejado por el receptor, por lo que FirebasePlugin no debería manejarlo.
-     * /
-     resumen  público booleano  onMessageReceived ( RemoteMessage  remoteMessage );
+     * @return true if the received message was handled by the receiver so should not be handled by FirebasePluginMessagingService.onMessageReceived()
+     */
+    public abstract boolean onMessageReceived(RemoteMessage remoteMessage);
+
+    /**
+     * Concrete subclasses should override this and return true if they handle the message bundle before it's sent to FirebasePlugin.sendMessage().
+     *
+     * @param bundle
+     * @return true if the received bundle was handled by the receiver so should not be handled by FirebasePlugin.
+     */
+    public abstract boolean sendMessage(Bundle bundle);
 }
