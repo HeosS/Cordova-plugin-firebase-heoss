@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 buildscript {
     repositories {
-        google()
         jcenter()
         mavenCentral()
     }
@@ -37,5 +36,10 @@ dependencies {
     apply plugin: 'io.fabric'
 })*/
 
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'io.fabric'
+//apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'io.fabric'
+
+cdvPluginPostBuildExtras.add({
+    apply plugin: 'com.google.gms.googleservices.GoogleServicesPlugin'
+    apply plugin: 'com.crashlytics.tools.gradle.CrashlyticsPlugin'
+})
