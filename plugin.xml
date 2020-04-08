@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="Cordova-plugin-firebase-heoss" version="9.0.2"
+<plugin id="Cordova-plugin-firebase-heoss" version="1"
     xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
   <name>Google Firebase Plugin</name>
@@ -10,7 +10,7 @@
   <dependency id="cordova-plugin-androidx-adapter" version="^1.1.0" />
 
   <engines>
-    <engine name="cordova" version=">=9" />
+    <engine name="cordova" version=">=7" />
     <engine name="cordova-android" version=">=8" />
     <engine name="cordova-ios" version=">=5" />
   </engines>
