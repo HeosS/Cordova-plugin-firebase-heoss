@@ -26,6 +26,6 @@ dependencies {
 
 cdvPluginPostBuildExtras.add({
     //apply plugin: 'com.google.gms.google-services'
-    apply plugin: 'com.google.android.gms:play-services-analytics:17.0.0'
+    apply plugin: 'com.google.android.gms:play-services'
     apply plugin: 'io.fabric'
 })
