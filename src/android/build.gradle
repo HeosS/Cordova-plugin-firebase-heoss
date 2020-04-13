@@ -2,12 +2,13 @@ apply plugin: 'com.android.application'
 
 buildscript {
     repositories {
+        google()
         jcenter()
         mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:+'
-        classpath 'com.google.gms:google-services:4.2.0'
+        classpath 'com.google.gms:google-services:+'
     }
 }
 repositories {
