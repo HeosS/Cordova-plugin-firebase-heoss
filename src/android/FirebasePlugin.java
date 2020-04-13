@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Base64;
 import android.util.Log;
 
@@ -366,8 +367,8 @@ public class FirebasePlugin extends CordovaPlugin {
             public void run() {
                 try {
                     Context context = cordova.getActivity();
-                   // NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
-                    boolean areNotificationsEnabled = true;
+                    NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
+                    boolean areNotificationsEnabled = notificationManagerCompat.areNotificationsEnabled();
                     JSONObject object = new JSONObject();
                     object.put("isEnabled", areNotificationsEnabled);
                     callbackContext.success(object);
@@ -606,8 +607,7 @@ public class FirebasePlugin extends CordovaPlugin {
         public void run() {
             try {
                 byte[] bytes = namespace == null ? FirebaseRemoteConfig.getInstance().getByteArray(key)
-                     //   : FirebaseRemoteConfig.getInstance().getByteArray(key, namespace);
-                       : FirebaseRemoteConfig.getInstance().getByteArray(key);
+                        : FirebaseRemoteConfig.getInstance().getByteArray(key, namespace);
                 JSONObject object = new JSONObject();
                 object.put("base64", Base64.encodeToString(bytes, Base64.DEFAULT));
                 object.put("array", new JSONArray(bytes));
@@ -626,8 +626,7 @@ public class FirebasePlugin extends CordovaPlugin {
             try {
                 FirebaseRemoteConfigValue value = namespace == null
                         ? FirebaseRemoteConfig.getInstance().getValue(key)
-                       // : FirebaseRemoteConfig.getInstance().getValue(key, namespace);
-                     : FirebaseRemoteConfig.getInstance().getValue(key);
+                        : FirebaseRemoteConfig.getInstance().getValue(key, namespace);
                 callbackContext.success(value.asString());
             } catch (Exception e) {
                 Crashlytics.logException(e);
@@ -684,8 +683,7 @@ public class FirebasePlugin extends CordovaPlugin {
                     if (namespace == null)
                         FirebaseRemoteConfig.getInstance().setDefaults(defaultsToMap(defaults));
                     else
-                        FirebaseRemoteConfig.getInstance().setDefaults(defaultsToMap(defaults));
-                        //FirebaseRemoteConfig.getInstance().setDefaults(defaultsToMap(defaults), namespace);
+                        FirebaseRemoteConfig.getInstance().setDefaults(defaultsToMap(defaults), namespace);
                     callbackContext.success();
                 } catch (Exception e) {
                     Crashlytics.logException(e);
@@ -872,7 +870,7 @@ public class FirebasePlugin extends CordovaPlugin {
         });
     }
 
-   private void incrementCounter(final CallbackContext callbackContext, final String name, final String counterNamed) {
+    private void incrementCounter(final CallbackContext callbackContext, final String name, final String counterNamed) {
         final FirebasePlugin self = this;
         cordova.getThreadPool().execute(new Runnable() {
             public void run() {
@@ -884,7 +882,7 @@ public class FirebasePlugin extends CordovaPlugin {
                     }
 
                     if (myTrace != null && myTrace instanceof Trace) {
-                       // myTrace.incrementCounter(counterNamed);
+                        myTrace.incrementCounter(counterNamed);
                         callbackContext.success();
                     } else {
                         callbackContext.error("Trace not found");
