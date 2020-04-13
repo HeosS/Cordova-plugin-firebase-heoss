@@ -18,8 +18,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-core:17.0.0'
-    
     compile 'me.leolin:ShortcutBadger:1.1.4@aar'
     compile 'com.google.firebase:firebase-auth:+'
     compile('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
