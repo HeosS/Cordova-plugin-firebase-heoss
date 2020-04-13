@@ -1,3 +1,5 @@
+apply plugin: 'com.android.application'
+
 buildscript {
     repositories {
         jcenter()
@@ -5,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:+'
-        classpath 'com.google.gms:google-services:4.1.0'
+        classpath 'com.google.gms:google-services:4.2.0'
     }
 }
 repositories {
@@ -16,6 +18,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+    
     compile 'me.leolin:ShortcutBadger:1.1.4@aar'
     compile 'com.google.firebase:firebase-auth:+'
     compile('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
@@ -23,12 +27,14 @@ dependencies {
     }
 }
 
-cdvPluginPostBuildExtras.add({
+apply plugin: 'com.google.gms.google-services'
+
+/*cdvPluginPostBuildExtras.add({
     apply plugin: 'com.google.gms.google-services'
     apply plugin: 'io.fabric'
 })
 
-/*cdvPluginPostBuildExtras.add({
+cdvPluginPostBuildExtras.add({
     rootProject.subprojects {
         if (name == "app") {
             if (!plugins.hasPlugin('com.google.gms.google-services')) {
