@@ -6,7 +6,8 @@ def dependencyMap = [
         "com.google.firebase:firebase-perf": "16.2.4",
         "com.google.android.gms:play-services-tagmanager": "16.0.8",
         "com.google.android.gms:play-services:11.4.0",
-        "com.google.firebase:firebase-auth": "16.2.0"
+        "com.google.firebase:firebase-auth": "16.2.0",
+        "android.support.v4.app.INotificationSideChannel"
 ]
 
 allprojects {
