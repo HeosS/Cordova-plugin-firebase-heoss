@@ -23,12 +23,12 @@ dependencies {
     }
 }
 
-/*cdvPluginPostBuildExtras.add({
+cdvPluginPostBuildExtras.add({
     apply plugin: 'com.google.gms.google-services'
     apply plugin: 'io.fabric'
-})*/
+})
 
-cdvPluginPostBuildExtras.add({
+/*cdvPluginPostBuildExtras.add({
     rootProject.subprojects {
         if (name == "app") {
             if (!plugins.hasPlugin('com.google.gms.google-services')) {
@@ -46,4 +46,4 @@ cdvPluginPostBuildExtras.add({
     crashlytics {
         enableNdk true
     }
-})
+})*/
