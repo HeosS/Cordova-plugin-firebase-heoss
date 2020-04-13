@@ -1,16 +1,11 @@
 buildscript {
     repositories {
-        google()
-        maven {
-            url "https://maven.fabric.io/public"
-        }
-        mavenCentral()
         jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath "io.fabric.tools:gradle:1.30.0"
-        classpath 'com.android.tools.build:gradle:3.4.1'
-        classpath 'com.google.gms:google-services:4.2.0'
+        classpath 'com.android.tools.build:gradle:+'
+        classpath 'com.google.gms:google-services:4.1.0'
     }
 }
 repositories {
@@ -20,25 +15,35 @@ repositories {
     }
 }
 
+dependencies {
+    compile 'me.leolin:ShortcutBadger:1.1.4@aar'
+    compile 'com.google.firebase:firebase-auth:+'
+    compile('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
+       transitive = true
+    }
+}
+
 cdvPluginPostBuildExtras.add({
+    apply plugin: 'com.google.gms.google-services'
+    apply plugin: 'io.fabric'
+})
+
+/*cdvPluginPostBuildExtras.add({
     rootProject.subprojects {
         if (name == "app") {
             if (!plugins.hasPlugin('com.google.gms.google-services')) {
                 apply {
                     plugin com.google.gms.googleservices.GoogleServicesPlugin
                 }
-
-                // Disable strict version check as it causes problems
+                
                 com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
             }
         }
     }
-    // Use class instead of id (string) to be able to apply plugin from non-root gradle file
 
     apply plugin: com.crashlytics.tools.gradle.CrashlyticsPlugin
 
-    // Enable Crashlytics NDK reporting
     crashlytics {
         enableNdk true
     }
-})
+})*/
