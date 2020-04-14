@@ -1,4 +1,4 @@
-def dependencyMap = [
+/*def dependencyMap = [
         "com.google.firebase:firebase-core": "16.0.8",
         "com.google.firebase:firebase-iid": "17.1.1",
         "com.google.firebase:firebase-messaging": "17.5.0",
@@ -31,4 +31,4 @@ allprojects {
         }
     }
 
-}
+}*/
