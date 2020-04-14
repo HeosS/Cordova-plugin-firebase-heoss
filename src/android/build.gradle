@@ -44,6 +44,7 @@ buildscript {
 	maven { url 'https://dl.bintray.com/android/android-tools' }
     }
     dependencies {
+    	classpath 'com.google.android.gms:strict-version-matcher-plugin:1.0.2'
         classpath 'com.android.tools.build:gradle:+'
         classpath 'com.google.gms:google-services:+'
     }
