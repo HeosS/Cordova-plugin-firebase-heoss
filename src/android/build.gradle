@@ -64,6 +64,8 @@ dependencies {
     }
 }
 
+apply plugin: 'com.google.android.gms.strict-version-matcher-plugin'
+
 cdvPluginPostBuildExtras.add({
     apply plugin: 'com.google.gms.google-services'
     apply plugin: 'io.fabric'
