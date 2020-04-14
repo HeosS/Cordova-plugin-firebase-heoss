@@ -38,14 +38,12 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
-	maven {
-            url 'https://maven.fabric.io/public'
-        }
+	maven { url 'https://maven.fabric.io/public' }
 	maven { url 'https://dl.bintray.com/android/android-tools' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:+'
-        classpath 'com.google.gms:google-services:4.1.0'
+        classpath 'com.google.gms:google-services:4.3.3'
     }
 }
 repositories {
