@@ -38,6 +38,10 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
+	maven {
+            url 'https://maven.fabric.io/public'
+        }
+	maven { url 'https://dl.bintray.com/android/android-tools' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:+'
