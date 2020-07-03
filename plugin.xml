@@ -18,11 +18,20 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 		<js-module name="FirebasePlugin" src="www/firebase.js">
 			<clobbers target="FirebasePlugin" />
 		</js-module>
+
 		<config-file parent="/*" target="res/xml/config.xml">
 			<feature name="FirebasePlugin">
 				<param name="android-package" value="org.apache.cordova.firebase.FirebasePlugin" />
 				<param name="onload" value="true" />
 			</feature>
+		</config-file>
+
+		<config-file parent="/resources" target="res/values/strings.xml">
+			<string name="google_app_id">1:63042661898:android:63af9bfa2bea7c11</string>
+		</config-file>
+		
+		<config-file parent="/resources" target="res/values/strings.xml">
+			<string name="google_api_key">AIzaSyC2SJZd9KaZtj6O7sSKKYNy-2DF9Jl_Gnw</string>
 		</config-file>
 
 		<config-file target="AndroidManifest.xml" parent="/*">
@@ -41,7 +50,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 					<action android:name="com.google.firebase.MESSAGING_EVENT"/>
 				</intent-filter>
 			</service>
-			
+
 			<service android:name="org.apache.cordova.firebase.FirebasePluginInstanceIDService">
 				<intent-filter>
 					<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
